@@ -1,0 +1,57 @@
+openapi: 3.0.3
+info:
+  title: Onboarding API
+  version: 1.0.1
+  description: 
+    STD2028
+servers:
+  - url: https://std22028.com/api/v1
+
+paths:
+  /students:
+    get:
+      summary: Show the student
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Internal Server Error
+    post:
+      summary: Add a new student
+      requestBody:
+        description: Create a new student
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Student'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Student'
+        '500':
+          description: Internal Server Error
+components:
+  schemas:
+    Student:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 1
+        name:
+          type: string
+          format: int64
+          example: Rakoto
+        birthdate:
+          type: string
+          format: date
+          example: 2000-01-01
