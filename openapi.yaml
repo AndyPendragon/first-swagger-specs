@@ -3,7 +3,7 @@ info:
   title: Onboarding API
   version: 1.0.1
   description: 
-    STD2028
+    STD22028
 servers:
   - url: https://std22028.com/api/v1
 
