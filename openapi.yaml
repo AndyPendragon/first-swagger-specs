@@ -15,7 +15,7 @@ paths:
     get:
       tags:
         - Students
-      summary: Show the student
+      summary: Show the students
       responses:
         '200':
           description: Successful operation
@@ -82,12 +82,89 @@ paths:
             type: integer
             format: int64
             example: 1
-            
       responses:
         '200':
           description: Successful operation
         '400':
           description: Invalid student value
+
+  /teachers:
+    get:
+      tags:
+        - Teachers
+      summary: Show the teachers
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Internal Server Error
+          
+    post:
+      tags:
+        - Teachers
+      summary: Add a new teacher
+      requestBody:
+        description: Create a new teacher
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+        required: true
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '500':
+          description: Internal Server Error
+    
+    put:
+      tags:
+        - Teachers
+      summary: Update a teacher
+      operationId: updateTeacher
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Teacher'
+      
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Teacher'
+        '405':
+          description: Invalid input
+          
+    delete:
+      tags:
+        - Teachers
+      summary: Delete a teacher
+      description: delete a teacher
+      operationId: deleteTeacher
+      parameters: 
+        - name: teacherId
+          in: query
+          required: true
+          schema:
+            type: integer
+            format: int64
+            example: 1
+            
+      responses:
+        '200':
+          description: Successful operation
+        '400':
+          description: Invalid teacher value
 
 components:
   schemas:
@@ -97,12 +174,27 @@ components:
         studentId:
           type: integer
           format: int64
-          example: 1
+          example: 22028
         name:
           type: string
           format: int64
-          example: Rakoto
+          example: Andy Nekena
         birthdate:
           type: string
           format: date
-          example: '2000-01-01'
+          example: '2005-05-02'
+    Teacher:
+      type: object
+      properties:
+        teacherId:
+          type: integer
+          format: int64
+          example: 21001
+        name:
+          type: string
+          format: int64
+          example: Tokimahery
+        birthdate:
+          type: string
+          format: date
+          example: '1993-10-4'
