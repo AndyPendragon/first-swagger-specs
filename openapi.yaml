@@ -123,48 +123,6 @@ paths:
                 $ref: '#/components/schemas/Teacher'
         '500':
           description: Internal Server Error
-    
-    put:
-      tags:
-        - Teachers
-      summary: Update a teacher
-      operationId: updateTeacher
-      requestBody:
-        content:
-          application/json:
-            schema:
-              $ref: '#/components/schemas/Teacher'
-      
-      responses:
-        '200':
-          description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Teacher'
-        '405':
-          description: Invalid input
-          
-    delete:
-      tags:
-        - Teachers
-      summary: Delete a teacher
-      description: delete a teacher
-      operationId: deleteTeacher
-      parameters: 
-        - name: teacherId
-          in: query
-          required: true
-          schema:
-            type: integer
-            format: int64
-            example: 1
-            
-      responses:
-        '200':
-          description: Successful operation
-        '400':
-          description: Invalid teacher value
 
 components:
   schemas:
