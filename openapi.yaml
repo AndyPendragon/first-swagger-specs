@@ -198,3 +198,24 @@ components:
           type: string
           format: date
           example: '1993-10-4'
+        course:
+          type: array
+          items:
+            type: object
+            properties:
+              courseName:
+                type: string
+                format: int64
+              courseCode:
+                type: string
+                format: int64
+              duration:
+                type: integer
+                format: int32
+            example: 
+              - courseName: Algorithmique
+                courseCode: PROG1
+                duration: 60
+              - courseName: Bases de données structurées
+                courseCode: DONNEES1
+                duration: 60
