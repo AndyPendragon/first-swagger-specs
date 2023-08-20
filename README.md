@@ -2,9 +2,9 @@
 
 This is the documentation for my first Swagger API specifications. The API provides endpoints for managing students and teachers.
 
-## Base URL
+## SWAGGER UI
 
-The API can be accessed at:
+The API can be used in Swagger UI at:
 
 ```https://petstore.swagger.io/?url=https://raw.githubusercontent.com/AndyPendragon/first-swagger-specs/main/openapi.yaml```
 
